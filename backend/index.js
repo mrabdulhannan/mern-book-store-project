@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import {Book} from "./models/bookModel.js";
 import booksRoute from './routes/booksRoute.js';
 const app = new express();
+import cors from "cors";
 
 app.use(express.json());
 
@@ -12,12 +13,12 @@ app.use(express.json());
 // Option 1: Allow all origin with defaults cors(*)
 app.use(cors());
 // Option 2: All Custom Origin
-app.use(cors({
-    origin: 'https://localhost:3000',
-    methos: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeader: ['Content-Type'],
-})
-);
+// app.use(cors({
+//     origin: 'https://localhost:5173',
+//     methos: ['GET', 'POST', 'PUT', 'DELETE'],
+//     allowedHeader: ['Content-Type'],
+// })
+// );
 app.get('/',(request, response) =>{
     console.log(request);
     return response.status(234).send("Welcome to MERN Stack Tutorial");
